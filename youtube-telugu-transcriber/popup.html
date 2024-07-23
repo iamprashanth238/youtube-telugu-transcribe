@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>YouTube Telugu Transcriber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #transcription {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transcription</h1>
+    <div id="transcription">Click the "Transcribe" button on a YouTube video to see the transcription here.</div>
+
+    <!-- Displaying output from the python server -->
+    <h1>Output</h1>
+    <div id="output">
+        <p id="output-text">Output will be displayed here.</p>
+    </div>
+    <script>
+        // Get the transcription from the background script
+        chrome.runtime.sendMessage({action: "getTranscription"}, function(response) {
+            document.getElementById("transcription").textContent = response.transcription;
+        });
+
+        // Get the output from the python server
+        chrome.runtime.sendMessage({action: "getOutput"}, function(response) {
+            document.getElementById("output-text").textContent = response.output;
+        });
+    </script>
+</body>
+</html>
