@@ -3,11 +3,11 @@
     "name": "YouTube Telugu Transcriber",
     "description": "Generate Telugu transcriptions for YouTube videos.",
     "version": "1.0",
-    "permissions": ["activeTab", "scripting", "storage"],
-    "background": {
-      "service_worker": "background.js"
-    },
+    "permissions": ["activeTab", "declarativeContent"],
+    "host_permissions": ["http://localhost:5000/*"],
+    
     "action": {
+      "default_title": "Generate Telugu Transcription",
       "default_popup": "popup.html",
       "default_icon": {
         "16": "icon16.png",
@@ -15,11 +15,10 @@
         "128": "icon128.png"
       }
     },
-    "content_scripts": [
-      {
-        "matches": ["https://www.youtube.com/*"],
-        "js": ["content.js"]
-      }
-    ]
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
   }
   
