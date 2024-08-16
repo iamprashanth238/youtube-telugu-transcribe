@@ -27,10 +27,10 @@ def transcribe():
 
     # transcribe the audio
     try:
-        model_id = "openai/whisper-base"
+        model_id = "openai/whisper-large-v3"
         # torch for cpu inference
         model = pipeline("automatic-speech-recognition", model=model_id)
-        model.model.config.forced_decoder_ids = model.tokenizer.get_decoder_prompt_ids(language="en", task="transcribe")
+        model.model.config.forced_decoder_ids = model.tokenizer.get_decoder_prompt_ids(language="te", task="transcribe")
         transcription = model(audio_path)['text']
         shutil.rmtree(temp_dir)
         return jsonify({"transcription": transcription}), 200
