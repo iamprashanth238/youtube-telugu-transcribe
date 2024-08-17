@@ -2,7 +2,6 @@ import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import yt_dlp as youtube_dl
-import torch
 from transformers import pipeline
 import tempfile
 import shutil
