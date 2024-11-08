@@ -25,7 +25,7 @@ btn.addEventListener("click", function () {
                 output.innerHTML = "Failed to fetch transcription.";
                 btn.disabled = false;
                 btn.innerHTML = "Transcribe";
-            });
+            }); 
     });
 });
 
